@@ -9,7 +9,7 @@ config = {
     'user': "test@gisce.net",
     'password': "test@gisce.net",
 }
-class orakWlum_client(object):
+class orakWlum_Client(object):
     def __init__(self):
         self.API = orakWlum_API(**config)
 
