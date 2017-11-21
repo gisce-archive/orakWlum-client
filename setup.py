@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 from setuptools import setup, find_packages
+import orakwlum_client
 
 INSTALL_REQUIRES = ['requests']
 
 setup(
     name='orakwlum_client',
     description='Python interface desired to interact with the okW system',
-    version='0.2.1',
+    version=orakwlum_client.__version__,
     url='https://www.gisce.net',
     author='GISCE Enginyeria, SL',
     author_email='devel@gisce.net',
