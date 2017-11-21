@@ -6,4 +6,4 @@ from .orakwlum_api import orakWlum_API
 from .orakwlum_client import orakWlum_Client
 
 __author__ = 'XaviTorello'
-__release__ = '0.1.0'
+__release__ = '0.2.2'
