@@ -58,7 +58,7 @@ class orakWlum_API(object):
         if self.token:
             headers['Authorization'] = 'access_token {token}'.format(token=self.token)
 
-        return AVAILABLE_METHODS[method](resource, headers, **kwargs)
+        return AVAILABLE_METHODS[method](resource, headers=headers, **kwargs)
 
     def login(self, user, password):
         """
