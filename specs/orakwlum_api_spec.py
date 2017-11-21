@@ -3,7 +3,7 @@ from __future__ import (absolute_import)
 import vcr
 import requests
 
-from orakwlum import orakWlum_API
+from orakwlum_client import orakWlum_API
 
 config = {
     'url': 'http://localhost:5000/api/v1',

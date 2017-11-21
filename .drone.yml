@@ -1,4 +1,4 @@
-pipeline:
+build:
   py3:
     image: python:3.5
     commands:
@@ -14,8 +14,6 @@ pipeline:
       - pip install -r requirements-dev.txt
       - mamba --enable-coverage -f documentation
       - coverage report --omit=*site-packages*,spec*,*dist-packages*
-
-
 
 notify:
   hipchat:
