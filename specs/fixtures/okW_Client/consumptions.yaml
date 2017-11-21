@@ -1,0 +1,25 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.18.4]
+    method: GET
+    uri: http://localhost:5000/api/v1/consumptions?Authorization=access_token+eyJhbGciOiJIUzI1NiIsImlhdCI6MTUxMTI0MzI3NSwiZXhwIjoxNTEyNDUyODc1fQ.eyJlbWFpbCI6InRlc3RAZ2lzY2UubmV0IiwiZ3JvdXBzIjpbIlVzZXIiXSwicm9sZXMiOiJVc2VyIiwiaW1hZ2UiOiJpbWFnZXMvdXNlci5qcGcifQ.vXpkGAKgN2ZjB-6gVLtlBiZNvOFUcAr3sMqtghZRRgU
+  response:
+    body: {string: !!python/unicode '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+        <title>Redirecting...</title>
+
+        <h1>Redirecting...</h1>
+
+        <p>You should be redirected automatically to target URL: <a href="http://localhost:5000/api/v1/consumptions/?Authorization=access_token+eyJhbGciOiJIUzI1NiIsImlhdCI6MTUxMTI0MzI3NSwiZXhwIjoxNTEyNDUyODc1fQ.eyJlbWFpbCI6InRlc3RAZ2lzY2UubmV0IiwiZ3JvdXBzIjpbIlVzZXIiXSwicm9sZXMiOiJVc2VyIiwiaW1hZ2UiOiJpbWFnZXMvdXNlci5qcGcifQ.vXpkGAKgN2ZjB-6gVLtlBiZNvOFUcAr3sMqtghZRRgU">http://localhost:5000/api/v1/consumptions/?Authorization=access_token+eyJhbGciOiJIUzI1NiIsImlhdCI6MTUxMTI0MzI3NSwiZXhwIjoxNTEyNDUyODc1fQ.eyJlbWFpbCI6InRlc3RAZ2lzY2UubmV0IiwiZ3JvdXBzIjpbIlVzZXIiXSwicm9sZXMiOiJVc2VyIiwiaW1hZ2UiOiJpbWFnZXMvdXNlci5qcGcifQ.vXpkGAKgN2ZjB-6gVLtlBiZNvOFUcAr3sMqtghZRRgU</a>.  If
+        not click the link.'}
+    headers:
+      content-length: ['797']
+      content-type: [text/html; charset=utf-8]
+      location: ['http://localhost:5000/api/v1/consumptions/?Authorization=access_token+eyJhbGciOiJIUzI1NiIsImlhdCI6MTUxMTI0MzI3NSwiZXhwIjoxNTEyNDUyODc1fQ.eyJlbWFpbCI6InRlc3RAZ2lzY2UubmV0IiwiZ3JvdXBzIjpbIlVzZXIiXSwicm9sZXMiOiJVc2VyIiwiaW1hZ2UiOiJpbWFnZXMvdXNlci5qcGcifQ.vXpkGAKgN2ZjB-6gVLtlBiZNvOFUcAr3sMqtghZRRgU']
+    status: {code: 301, message: MOVED PERMANENTLY}
+version: 1

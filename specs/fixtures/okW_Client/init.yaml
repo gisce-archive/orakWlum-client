@@ -11,7 +11,7 @@ interactions:
     method: POST
     uri: http://localhost:5000/api/v1/get_token
   response:
-    body: {string: !!python/unicode "{\n  \"token\": \"eyJhbGciOiJIUzI1NiIsImlhdCI6MTUxMTI0MDk4OCwiZXhwIjoxNTEyNDUwNTg4fQ.eyJlbWFpbCI6InRlc3RAZ2lzY2UubmV0IiwiZ3JvdXBzIjpbIlVzZXIiXSwicm9sZXMiOiJVc2VyIiwiaW1hZ2UiOiJpbWFnZXMvdXNlci5qcGcifQ.sqp5x7NE5c57fg8_dtG7Ti_Hl6YFQ4vxn2UTDWAKOKI\"\n}\n"}
+    body: {string: !!python/unicode "{\n  \"token\": \"eyJhbGciOiJIUzI1NiIsImlhdCI6MTUxMTI0MzI3NSwiZXhwIjoxNTEyNDUyODc1fQ.eyJlbWFpbCI6InRlc3RAZ2lzY2UubmV0IiwiZ3JvdXBzIjpbIlVzZXIiXSwicm9sZXMiOiJVc2VyIiwiaW1hZ2UiOiJpbWFnZXMvdXNlci5qcGcifQ.vXpkGAKgN2ZjB-6gVLtlBiZNvOFUcAr3sMqtghZRRgU\"\n}\n"}
     headers:
       content-length: ['243']
       content-type: [application/json]
