@@ -6,9 +6,15 @@ import requests
 from orakwlum_client import orakWlum_Client
 
 config = {
-    'url': 'http://localhost:5000/api/v1',
+    'protocol': 'http',
+    'host': 'localhost',
+    'port': '5000',
     'user': "test@gisce.net",
     'password': "test@gisce.net",
+}
+
+expected = {
+    'url': 'http://localhost:5000/api/v1',
 }
 
 consumption_to_fetch = {
@@ -36,13 +42,14 @@ spec_VCR = vcr.VCR(
 with description('A new'):
     with before.each:
         self.config = config
+        self.expected = expected
 
     with context('orakWlum_Client'):
         with context('initialization'):
             with it('must be performed as expected'):
                 with spec_VCR.use_cassette('init.yaml'):
                     self.okW = orakWlum_Client(**self.config)
-                    assert self.okW.API.url == self.config['url'], "URL must match"
+                    assert self.okW.API.url == self.expected['url'], "URL must match"
                     assert self.okW.API.token != None, "Token must be defined"
 
             with context('errors'):
