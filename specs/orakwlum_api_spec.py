@@ -11,6 +11,11 @@ config = {
 
 fixtures_path = 'specs/fixtures/okW_API/'
 
+spec_VCR = vcr.VCR(
+    record_mode='all',
+    cassette_library_dir=fixtures_path
+)
+
 with description('A new'):
     with before.each:
         self.config = config
@@ -18,21 +23,21 @@ with description('A new'):
     with context('orakWlum_API'):
         with context('initialization'):
             with it('must be performed as expected'):
-                with vcr.use_cassette(fixtures_path + 'login.yaml'):
+                with spec_VCR.use_cassette('login.yaml'):
                     self.API = orakWlum_API(**self.config)
                     assert self.API.url == self.config['url'], "URL must match"
                     assert self.API.token != None, "Token must be defined"
 
             with context('errors'):
                 with it('must be handled for incorrect user'):
-                    with vcr.use_cassette(fixtures_path + 'error_login_incorrect_user.yaml'):
+                    with spec_VCR.use_cassette('error_login_incorrect_user.yaml'):
                         self.config['user'] = "non-existent-user"
                         self.API = orakWlum_API(**self.config)
                         assert self.API.url == self.config['url'], "URL must match"
                         assert self.API.token == None, "Token must not be defined for erroneous login"
 
                 with it('must be handled for incorrect password'):
-                    with vcr.use_cassette(fixtures_path + 'error_login_incorrect_passwd.yaml'):
+                    with spec_VCR.use_cassette('error_login_incorrect_passwd.yaml'):
                         self.config['password'] = "incorrect-password"
                         self.API = orakWlum_API(**self.config)
                         assert self.API.url == self.config['url'], "URL must match"
@@ -40,10 +45,10 @@ with description('A new'):
 
         with context('usage'):
             with before.each:
-                with vcr.use_cassette(fixtures_path + 'login.yaml'):
+                with spec_VCR.use_cassette('login.yaml'):
                     self.config = config
                     self.API = orakWlum_API(**self.config)
 
             with it('must be performed as expected for GET requests'):
-                with vcr.use_cassette(fixtures_path + 'get.yaml'):
-                    pass
+                with spec_VCR.use_cassette('get.yaml'):
+                    self.API.get("/consumptions")
