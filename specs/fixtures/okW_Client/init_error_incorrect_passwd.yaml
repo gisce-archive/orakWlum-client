@@ -1,0 +1,87 @@
+interactions:
+- request:
+    body: !!python/unicode '{"password": "incorrect-password", "email": "non-existent-user"}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['64']
+      Content-Type: [application/json]
+      User-Agent: [python-requests/2.18.4]
+    method: POST
+    uri: http://localhost:5000/api/v1/get_token
+  response:
+    body: {string: !!python/unicode "{\n  \"error\": true\n}\n"}
+    headers:
+      content-length: ['20']
+      content-type: [application/json]
+    status: {code: 403, message: FORBIDDEN}
+- request:
+    body: !!python/unicode '{"password": "incorrect-password", "email": "non-existent-user"}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['64']
+      Content-Type: [application/json]
+      User-Agent: [python-requests/2.18.4]
+    method: POST
+    uri: http://localhost:5000/api/v1/get_token
+  response:
+    body: {string: !!python/unicode "{\n  \"error\": true\n}\n"}
+    headers:
+      content-length: ['20']
+      content-type: [application/json]
+    status: {code: 403, message: FORBIDDEN}
+- request:
+    body: !!python/unicode '{"password": "incorrect-password", "email": "non-existent-user"}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['64']
+      Content-Type: [application/json]
+      User-Agent: [python-requests/2.18.4]
+    method: POST
+    uri: http://localhost:5000/api/v1/get_token
+  response:
+    body: {string: !!python/unicode "{\n  \"error\": true\n}\n"}
+    headers:
+      content-length: ['20']
+      content-type: [application/json]
+    status: {code: 403, message: FORBIDDEN}
+- request:
+    body: !!python/unicode '{"password": "test@gisce.net", "email": "test@gisce.net"}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['57']
+      Content-Type: [application/json]
+      User-Agent: [python-requests/2.18.4]
+    method: POST
+    uri: http://localhost:5000/api/v1/get_token
+  response:
+    body: {string: !!python/unicode "{\n  \"token\": \"eyJhbGciOiJIUzI1NiIsImlhdCI6MTUxMTI0NDIxMywiZXhwIjoxNTEyNDUzODEzfQ.eyJlbWFpbCI6InRlc3RAZ2lzY2UubmV0IiwiZ3JvdXBzIjpbIlVzZXIiXSwicm9sZXMiOiJVc2VyIiwiaW1hZ2UiOiJpbWFnZXMvdXNlci5qcGcifQ.F-pO00OiP38_0yZHIkDrsGUtpxXYwwBiFjrjvxMfamc\"\n}\n"}
+    headers:
+      content-length: ['243']
+      content-type: [application/json]
+    status: {code: 200, message: OK}
+- request:
+    body: !!python/unicode '{"password": "test@gisce.net", "email": "test@gisce.net"}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['57']
+      Content-Type: [application/json]
+      User-Agent: [python-requests/2.18.4]
+    method: POST
+    uri: http://localhost:5000/api/v1/get_token
+  response:
+    body: {string: !!python/unicode "{\n  \"token\": \"eyJhbGciOiJIUzI1NiIsImlhdCI6MTUxMTI0NDI0MCwiZXhwIjoxNTEyNDUzODQwfQ.eyJlbWFpbCI6InRlc3RAZ2lzY2UubmV0IiwiZ3JvdXBzIjpbIlVzZXIiXSwicm9sZXMiOiJVc2VyIiwiaW1hZ2UiOiJpbWFnZXMvdXNlci5qcGcifQ.q6SzhQckPLt2uwBArJWfbpem2hl3zSYscvagJApxtP4\"\n}\n"}
+    headers:
+      content-length: ['243']
+      content-type: [application/json]
+    status: {code: 200, message: OK}
+version: 1
