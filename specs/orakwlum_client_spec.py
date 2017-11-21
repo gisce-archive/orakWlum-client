@@ -9,6 +9,12 @@ config = {
     'password': "test@gisce.net",
 }
 
+consumption_to_fetch = {
+    "CUPS": 'ES0000000000000000AA',
+    "date_start": 1472688000,
+    "date_end": 1475280000,
+}
+
 fixtures_path = 'specs/fixtures/okW_Client/'
 
 spec_VCR = vcr.VCR(
@@ -62,5 +68,17 @@ with description('A new'):
 
             with it('must return consumptions as expected'):
                 with spec_VCR.use_cassette('consumptions.yaml'):
-                    consumptions = self.okW.consumptions(CUPS="ES0000000000000000AA", date_start=1472688000, date_end=1475280000)
+                    consumptions = self.okW.consumptions(**consumption_to_fetch)
                     print (consumptions)
+
+                    for param in consumption_to_fetch:
+                        tmp_config = dict(consumption_to_fetch)
+                        del tmp_config[param]
+
+                        works = True
+                        try:
+                            consumptions = self.okW.consumptions(**tmp_config)
+                            print (consumptions)
+                        except:
+                            works = False
+                        assert not works, f"okWClient.Consumptions must except if no {param} is provided"
