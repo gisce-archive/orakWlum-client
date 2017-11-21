@@ -5,6 +5,10 @@ import json
 
 class orakWlum_Client(object):
     def __init__(self, **config):
+        assert "url" in config
+        assert "user" in config
+        assert "password" in config
+
         self.API = orakWlum_API(**config)
 
     def consumptions(self, CUPS, date_start, date_end):
