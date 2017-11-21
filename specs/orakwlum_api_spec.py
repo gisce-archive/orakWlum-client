@@ -38,7 +38,7 @@ with description('A new'):
                         assert self.API.url == self.config['url'], "URL must match"
                         assert self.API.token == None, "Token must not be defined for erroneous login"
 
-        with context('get'):
+        with context('usage'):
             with before.each:
                 with vcr.use_cassette(fixtures_path + 'login.yaml'):
                     self.config = config
