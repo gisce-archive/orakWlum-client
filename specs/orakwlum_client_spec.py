@@ -15,6 +15,15 @@ consumption_to_fetch = {
     "date_end": 1475280000,
 }
 
+consumption_expected = {
+    'result': {
+        'ES0000000000000000AA': {
+            'total': 10.0,
+            'consumption': 10.0
+            }
+        }
+    }
+
 fixtures_path = 'specs/fixtures/okW_Client/'
 
 spec_VCR = vcr.VCR(
@@ -68,8 +77,11 @@ with description('A new'):
 
             with it('must return consumptions as expected'):
                 with spec_VCR.use_cassette('consumptions.yaml'):
-                    consumptions = self.okW.consumptions(**consumption_to_fetch)
-                    print (consumptions)
+                    consumption = self.okW.consumptions(**consumption_to_fetch)
+                    print (consumption)
+                    print (consumption_expected)
+
+                    assert consumption == consumption_expected
 
                     for param in consumption_to_fetch:
                         tmp_config = dict(consumption_to_fetch)
