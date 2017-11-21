@@ -81,4 +81,4 @@ with description('A new'):
                             print (consumptions)
                         except:
                             works = False
-                        assert not works, f"okWClient.Consumptions must except if no {param} is provided"
+                        assert not works, "okWClient.Consumptions must except if no {param} is provided".format(param=param)
