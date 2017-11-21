@@ -1,1 +1,1 @@
-import orakwlum_client
+from orakwlum_api import orakWlum_API
