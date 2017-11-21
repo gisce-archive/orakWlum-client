@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 from .orakwlum_api import orakWlum_API
 import json
 
