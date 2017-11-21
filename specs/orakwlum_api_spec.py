@@ -12,7 +12,7 @@ config = {
 fixtures_path = 'specs/fixtures/okW_API/'
 
 spec_VCR = vcr.VCR(
-    record_mode='all',
+    record_mode='new_episodes',
     cassette_library_dir=fixtures_path
 )
 
