@@ -45,6 +45,7 @@ with description('A new'):
                         assert self.API.url == self.config['url'], "URL must match"
                         assert self.API.token == None, "Token must not be defined for erroneous login"
 
+
         with context('usage'):
             with before.each:
                 with spec_VCR.use_cassette('login.yaml'):
@@ -54,3 +55,8 @@ with description('A new'):
             with it('must be performed as expected for GET requests'):
                 with spec_VCR.use_cassette('get.yaml'):
                     self.API.get("/")
+
+            with it('must be performed as expected for GET requests with own headers'):
+                with spec_VCR.use_cassette('get.yaml'):
+                    own_headers = {'rolf': 'me'}
+                    self.API.get("/", headers=own_headers)
