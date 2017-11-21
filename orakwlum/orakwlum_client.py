@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from orakwlum_api import orakWlum_API
+from .orakwlum_api import orakWlum_API
 import json
 
 class orakWlum_Client(object):
