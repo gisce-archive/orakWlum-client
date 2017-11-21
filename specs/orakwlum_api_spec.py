@@ -51,4 +51,4 @@ with description('A new'):
 
             with it('must be performed as expected for GET requests'):
                 with spec_VCR.use_cassette('get.yaml'):
-                    self.API.get("/consumptions")
+                    self.API.get("/")
