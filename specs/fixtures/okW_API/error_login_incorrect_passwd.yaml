@@ -16,4 +16,106 @@ interactions:
       content-length: ['20']
       content-type: [application/json]
     status: {code: 403, message: FORBIDDEN}
+- request:
+    body: !!python/unicode '{"password": "incorrect-password", "email": "non-existent-user"}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['64']
+      Content-Type: [application/json]
+      User-Agent: [python-requests/2.18.4]
+    method: POST
+    uri: http://localhost:5000/api/v1/get_token
+  response:
+    body: {string: !!python/unicode "{\n  \"error\": true\n}\n"}
+    headers:
+      content-length: ['20']
+      content-type: [application/json]
+    status: {code: 403, message: FORBIDDEN}
+- request:
+    body: !!python/unicode '{"password": "incorrect-password", "email": "non-existent-user"}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['64']
+      Content-Type: [application/json]
+      User-Agent: [python-requests/2.18.4]
+    method: POST
+    uri: http://localhost:5000/api/v1/get_token
+  response:
+    body: {string: !!python/unicode "{\n  \"error\": true\n}\n"}
+    headers:
+      content-length: ['20']
+      content-type: [application/json]
+    status: {code: 403, message: FORBIDDEN}
+- request:
+    body: !!python/unicode '{"password": "incorrect-password", "email": "non-existent-user"}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['64']
+      Content-Type: [application/json]
+      User-Agent: [python-requests/2.18.4]
+    method: POST
+    uri: http://localhost:5000/api/v1/get_token
+  response:
+    body: {string: !!python/unicode "{\n  \"error\": true\n}\n"}
+    headers:
+      content-length: ['20']
+      content-type: [application/json]
+    status: {code: 403, message: FORBIDDEN}
+- request:
+    body: !!python/unicode '{"password": "incorrect-password", "email": "non-existent-user"}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['64']
+      Content-Type: [application/json]
+      User-Agent: [python-requests/2.18.4]
+    method: POST
+    uri: http://localhost:5000/api/v1/get_token
+  response:
+    body: {string: !!python/unicode "{\n  \"error\": true\n}\n"}
+    headers:
+      content-length: ['20']
+      content-type: [application/json]
+    status: {code: 403, message: FORBIDDEN}
+- request:
+    body: !!python/unicode '{"password": "incorrect-password", "email": "non-existent-user"}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['64']
+      Content-Type: [application/json]
+      User-Agent: [python-requests/2.18.4]
+    method: POST
+    uri: http://localhost:5000/api/v1/get_token
+  response:
+    body: {string: !!python/unicode "{\n  \"error\": true\n}\n"}
+    headers:
+      content-length: ['20']
+      content-type: [application/json]
+    status: {code: 403, message: FORBIDDEN}
+- request:
+    body: !!python/unicode '{"password": "incorrect-password", "email": "non-existent-user"}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['64']
+      Content-Type: [application/json]
+      User-Agent: [python-requests/2.18.4]
+    method: POST
+    uri: http://localhost:5000/api/v1/get_token
+  response:
+    body: {string: !!python/unicode "{\n  \"error\": true\n}\n"}
+    headers:
+      content-length: ['20']
+      content-type: [application/json]
+    status: {code: 403, message: FORBIDDEN}
 version: 1
