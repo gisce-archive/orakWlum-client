@@ -15,4 +15,8 @@ class orakWlum_Client(object):
         """
         Return consumptions for a CUPS between a range of dates
         """
-        return self.API.get(resource="/consumptions")
+        params = {
+            "date_start": date_start,
+            "date_end": date_end,
+        }
+        return self.API.get(resource="/consumptions/" + CUPS, params=params)
