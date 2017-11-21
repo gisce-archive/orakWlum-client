@@ -4,39 +4,16 @@ interactions:
     headers:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
+      Authorization: [access_token eyJhbGciOiJIUzI1NiIsImlhdCI6MTUxMTI1NTI2MSwiZXhwIjoxNTEyNDY0ODYxfQ.eyJlbWFpbCI6InRlc3RAZ2lzY2UubmV0IiwiZ3JvdXBzIjpbIlVzZXIiXSwicm9sZXMiOiJVc2VyIiwiaW1hZ2UiOiJpbWFnZXMvdXNlci5qcGcifQ.RCczxGkCbcTCcsmTCHoCAIxjVND6EGTLeOPkzpm1oIU]
       Connection: [keep-alive]
       User-Agent: [python-requests/2.18.4]
     method: GET
-    uri: http://localhost:5000/api/v1/consumptions?Authorization=access_token+eyJhbGciOiJIUzI1NiIsImlhdCI6MTUxMTI0MzI3NSwiZXhwIjoxNTEyNDUyODc1fQ.eyJlbWFpbCI6InRlc3RAZ2lzY2UubmV0IiwiZ3JvdXBzIjpbIlVzZXIiXSwicm9sZXMiOiJVc2VyIiwiaW1hZ2UiOiJpbWFnZXMvdXNlci5qcGcifQ.vXpkGAKgN2ZjB-6gVLtlBiZNvOFUcAr3sMqtghZRRgU
+    uri: http://localhost:5000/api/v1/consumptions/ES0000000000000000AA?date_start=1472688000&date_end=1475280000
   response:
-    body: {string: !!python/unicode '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
-
-        <title>Redirecting...</title>
-
-        <h1>Redirecting...</h1>
-
-        <p>You should be redirected automatically to target URL: <a href="http://localhost:5000/api/v1/consumptions/?Authorization=access_token+eyJhbGciOiJIUzI1NiIsImlhdCI6MTUxMTI0MzI3NSwiZXhwIjoxNTEyNDUyODc1fQ.eyJlbWFpbCI6InRlc3RAZ2lzY2UubmV0IiwiZ3JvdXBzIjpbIlVzZXIiXSwicm9sZXMiOiJVc2VyIiwiaW1hZ2UiOiJpbWFnZXMvdXNlci5qcGcifQ.vXpkGAKgN2ZjB-6gVLtlBiZNvOFUcAr3sMqtghZRRgU">http://localhost:5000/api/v1/consumptions/?Authorization=access_token+eyJhbGciOiJIUzI1NiIsImlhdCI6MTUxMTI0MzI3NSwiZXhwIjoxNTEyNDUyODc1fQ.eyJlbWFpbCI6InRlc3RAZ2lzY2UubmV0IiwiZ3JvdXBzIjpbIlVzZXIiXSwicm9sZXMiOiJVc2VyIiwiaW1hZ2UiOiJpbWFnZXMvdXNlci5qcGcifQ.vXpkGAKgN2ZjB-6gVLtlBiZNvOFUcAr3sMqtghZRRgU</a>.  If
-        not click the link.'}
+    body: {string: "{\n  \"result\": {\n    \"ES0000000000000000AA\": {\n      \"consumption\":
+        10.0, \n      \"total\": 10.0\n    }\n  }\n}\n"}
     headers:
-      content-length: ['797']
-      content-type: [text/html; charset=utf-8]
-      location: ['http://localhost:5000/api/v1/consumptions/?Authorization=access_token+eyJhbGciOiJIUzI1NiIsImlhdCI6MTUxMTI0MzI3NSwiZXhwIjoxNTEyNDUyODc1fQ.eyJlbWFpbCI6InRlc3RAZ2lzY2UubmV0IiwiZ3JvdXBzIjpbIlVzZXIiXSwicm9sZXMiOiJVc2VyIiwiaW1hZ2UiOiJpbWFnZXMvdXNlci5qcGcifQ.vXpkGAKgN2ZjB-6gVLtlBiZNvOFUcAr3sMqtghZRRgU']
-    status: {code: 301, message: MOVED PERMANENTLY}
-- request:
-    body: null
-    headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Authorization: [access_token eyJhbGciOiJIUzI1NiIsImlhdCI6MTUxMTI0MzI3NSwiZXhwIjoxNTEyNDUyODc1fQ.eyJlbWFpbCI6InRlc3RAZ2lzY2UubmV0IiwiZ3JvdXBzIjpbIlVzZXIiXSwicm9sZXMiOiJVc2VyIiwiaW1hZ2UiOiJpbWFnZXMvdXNlci5qcGcifQ.vXpkGAKgN2ZjB-6gVLtlBiZNvOFUcAr3sMqtghZRRgU]
-      Connection: [keep-alive]
-      User-Agent: [python-requests/2.18.4]
-    method: GET
-    uri: http://localhost:5000/api/v1/consumptions/ES0000000000000000AA?date_end=1475280000&date_start=1472688000
-  response:
-    body: {string: !!python/unicode "{\n  \"result\": {\n    \"ES0000000000000000AA\":
-        {\n      \"consumption\": 10.0, \n      \"total\": 10.0\n    }\n  }\n}\n"}
-    headers:
-      content-length: ['106']
-      content-type: [application/json]
+      Content-Length: ['106']
+      Content-Type: [application/json]
     status: {code: 200, message: OK}
 version: 1
