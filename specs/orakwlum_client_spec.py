@@ -29,17 +29,30 @@ with description('A new'):
                     assert self.okW.API.token != None, "Token must be defined"
 
             with context('errors'):
-                with it('must be handled for incorrect user'):
+                with it('must be handled for non passed user'):
                     with my_vcr.use_cassette('init_error_incorrect_user.yaml'):
-                        self.config['user'] = "non-existent-user"
-                        self.okW = orakWlum_Client(**self.config)
-                        assert self.okW.API.token == None, "Token must not be defined for erroneous login"
+                        tmp_config = dict(self.config)
+                        del tmp_config['user']
+
+                        works = True
+                        try:
+                            orakWlum_Client(**tmp_config)
+                        except:
+                            works = False
+
+                        assert not works, "okW Client must except if no user is provided"
 
                 with it('must be handled for incorrect password'):
                     with my_vcr.use_cassette('init_error_incorrect_passwd.yaml'):
-                        self.config['password'] = "incorrect-password"
-                        self.okW = orakWlum_Client(**self.config)
-                        assert self.okW.API.token == None, "Token must not be defined for erroneous login"
+                        tmp_config = dict(self.config)
+                        del tmp_config['password']
+                        works = True
+                        try:
+                            orakWlum_Client(**tmp_config)
+                        except:
+                            works = False
+
+                        assert not works, "okW Client must except if no password is provided"
 
         with context('usage'):
             with before.each:
