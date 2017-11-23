@@ -29,5 +29,6 @@ class orakWlum_Client(object):
         params = {
             "date_start": date_start,
             "date_end": date_end,
+            "cups": CUPS,
         }
-        return self.API.get(resource="/consumptions/" + CUPS, params=params)
+        return self.API.get(resource="/consumptions", params=params)
