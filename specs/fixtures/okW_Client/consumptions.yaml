@@ -8,7 +8,7 @@ interactions:
       Connection: [keep-alive]
       User-Agent: [python-requests/2.18.4]
     method: GET
-    uri: http://localhost:5000/api/v1/consumptions/ES0000000000000000AA?date_start=1472688000&date_end=1475280000
+    uri: http://localhost:5000/api/v1/consumptions?date_start=1472688000&date_end=1475280000&cups=ES0000000000000000AA
   response:
     body: {string: "{\n  \"result\": {\n    \"ES0000000000000000AA\": {\n      \"consumption\":
         10.0, \n      \"total\": 10.0\n    }\n  }\n}\n"}
