@@ -33,8 +33,12 @@ class orakWlum_Client(object):
         }
         return self.API.get(resource="/consumptions", params=params)
 
-    def consumptions_by_aggregates (self, CUPS, date_start, date_end):
+    def consumptions_by_aggregates (self, date_start, date_end, aggregates=None):
         """
         Return consumptions grouped by REE aggregates between a range of dates
         """
-        pass
+        params = {
+            "date_start": date_start,
+            "date_end": date_end,
+        }
+        return self.API.get(resource="/consumptions_by_aggregates", params=params)
