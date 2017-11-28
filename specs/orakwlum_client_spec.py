@@ -18,18 +18,22 @@ expected = {
 }
 
 consumption_to_fetch = {
-    "CUPS": 'ES0000000000000000AA',
-    "date_start": 1472688000,
-    "date_end": 1475280000,
+    "by_CUPS": {
+        "CUPS": 'ES0000000000000000AA',
+        "date_start": 1472688000,
+        "date_end": 1475280000,
+    },
 }
 
 consumption_expected = {
-    'result': {
-        'ES0000000000000000AA': {
-            'consumption': 10.0,
-            'total': 10.0,
-        }
-    }
+    "by_CUPS": {
+        'result': {
+            'ES0000000000000000AA': {
+                'consumption': 10.0,
+                'total': 10.0,
+            },
+        },
+    },
 }
 
 fixtures_path = 'specs/fixtures/okW_Client/'
@@ -84,14 +88,14 @@ with description('A new'):
                     self.config = config
                     self.okW = orakWlum_Client(**self.config)
 
-            with it('must return consumptions by CUPS as expected '):
+            with it('must return consumptions by CUPS as expected'):
                 with spec_VCR.use_cassette('consumptions.yaml'):
-                    consumption = self.okW.consumptions_by_cups(**consumption_to_fetch)
-                    assert consumption == consumption_expected, "Consumption do no match with the expected one. Expected: '{consumption_expected}' vs '{consumption}'".format(consumption_expected=consumption_expected, consumption=consumption)
+                    consumption = self.okW.consumptions_by_cups(**consumption_to_fetch['by_CUPS'])
+                    assert consumption == consumption_expected['by_CUPS'], "Consumption do no match with the expected one. Expected: '{consumption_expected}' vs '{consumption}'".format(consumption_expected=consumption_expected['by_CUPS'], consumption=consumption)
 
                     # Assert required params to reach Consumption
-                    for param in consumption_to_fetch:
-                        tmp_config = dict(consumption_to_fetch)
+                    for param in consumption_to_fetch['by_CUPS']:
+                        tmp_config = dict(consumption_to_fetch['by_CUPS'])
                         del tmp_config[param]
 
                         works = True
