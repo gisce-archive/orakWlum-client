@@ -32,3 +32,5 @@ class orakWlum_Client(object):
             "cups": CUPS,
         }
         return self.API.get(resource="/consumptions", params=params)
+
+    def consumptions_by_aggregates (self, CUPS, date_start, date_end):
