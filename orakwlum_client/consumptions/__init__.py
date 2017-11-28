@@ -20,7 +20,7 @@ class Consumptions (object):
         }
         return self.API.get(resource="/consumptions", params=params)
 
-    def consumptions_by_aggregates (self, date_start, date_end, aggregates=None):
+    def by_aggregates (self, date_start, date_end, aggregates=None):
         """
         Return consumptions grouped by REE aggregates between a range of dates
 
