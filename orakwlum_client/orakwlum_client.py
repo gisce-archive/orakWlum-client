@@ -22,7 +22,7 @@ class orakWlum_Client(object):
         }
         self.API = orakWlum_API(**config)
 
-    def consumptions(self, CUPS, date_start, date_end):
+    def consumptions_by_cups (self, CUPS, date_start, date_end):
         """
         Return consumptions for a CUPS between a range of dates
         """
