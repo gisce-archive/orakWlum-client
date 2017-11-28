@@ -23,6 +23,10 @@ consumption_to_fetch = {
         "date_start": 1472688000,
         "date_end": 1475280000,
     },
+    "by_aggregates": {
+        "date_start": 1472688000,
+        "date_end": 1475280000,
+    },
 }
 
 consumption_expected = {
@@ -31,6 +35,14 @@ consumption_expected = {
             'ES0000000000000000AA': {
                 'consumption': 10.0,
                 'total': 10.0,
+            },
+        },
+    },
+    "by_aggregates": {
+        'result': {
+            'AGG1': {
+                'consumption': 12.0,
+                'total': 12.0,
             },
         },
     },
@@ -101,6 +113,24 @@ with description('A new'):
                         works = True
                         try:
                             consumptions = self.okW.consumptions_by_cups(**tmp_config)
+                            print (consumptions)
+                        except:
+                            works = False
+                        assert not works, "okWClient.Consumptions must except if no {param} is provided".format(param=param)
+
+            with it('must return consumptions by aggregates as expected'):
+                with spec_VCR.use_cassette('consumptions.yaml'):
+                    consumption = self.okW.consumptions_by_aggregates(**consumption_to_fetch['by_aggregates'])
+                    assert consumption == consumption_expected['by_aggregates'], "Consumption do no match with the expected one. Expected: '{consumption_expected}' vs '{consumption}'".format(consumption_expected=consumption_expected['by_aggregates'], consumption=consumption)
+
+                    # Assert required params to reach Consumption
+                    for param in consumption_to_fetch['by_aggregates']:
+                        tmp_config = dict(consumption_to_fetch['by_aggregates'])
+                        del tmp_config[param]
+
+                        works = True
+                        try:
+                            consumptions = self.okW.consumptions_by_aggregates(**tmp_config)
                             print (consumptions)
                         except:
                             works = False
