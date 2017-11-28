@@ -24,7 +24,7 @@ class orakWlum_Client(object):
 
     def consumptions_by_cups (self, CUPS, date_start, date_end):
         """
-        Return consumptions for a CUPS between a range of dates
+        Return consumptions for a CUPS (or a list) between a range of dates
         """
         params = {
             "date_start": date_start,
@@ -34,3 +34,7 @@ class orakWlum_Client(object):
         return self.API.get(resource="/consumptions", params=params)
 
     def consumptions_by_aggregates (self, CUPS, date_start, date_end):
+        """
+        Return consumptions grouped by REE aggregates between a range of dates
+        """
+        pass
