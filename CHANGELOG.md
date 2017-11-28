@@ -1,5 +1,6 @@
 ## 0.3.0 - WIP
 * Added Consumption.by_aggregates()
+* Consumption.by_cups() now passes CUPS as HTTP params
 * Isolated packages for each functionality
   * client.consumptions.by_cups() replaces client.consumptions_by_cups()
   * client.consumptions.by_aggregates() replaces client.consumptions_by_aggregates()
