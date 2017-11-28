@@ -1,9 +1,20 @@
 # -*- coding: utf-8 -*-
 from .orakwlum_api import orakWlum_API
-import json
 
 class orakWlum_Client(object):
     def __init__(self, **config):
+        """
+        Initializes an orakWlum client
+
+        Mandatory params:
+        - host
+        - port
+        - user
+        - password
+
+        Optional:
+        - protocol: "http" or "https"
+        """
         assert "host" in config
         assert "port" in config
         assert "user" in config
