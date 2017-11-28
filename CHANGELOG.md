@@ -1,4 +1,10 @@
-## 0.2.0 - First Release
+## 0.3.0 - WIP
+* Added Consumption.by_aggregates()
+* Isolated packages for each functionality
+  * client.consumptions.by_cups() replaces client.consumptions_by_cups()
+  * client.consumptions.by_aggregates() replaces client.consumptions_by_aggregates()
+
+## 0.2.0 - First productive client!
 * Package renamed to "orakwlum_client"
 * Drone testing for py2.7 and py3.6
 
