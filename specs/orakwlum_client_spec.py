@@ -102,7 +102,7 @@ with description('A new'):
 
             with it('must return consumptions by CUPS as expected'):
                 with spec_VCR.use_cassette('consumptions.yaml'):
-                    consumption = self.okW.consumptions_by_cups(**consumption_to_fetch['by_CUPS'])
+                    consumption = self.okW.consumptions.consumptions_by_cups(**consumption_to_fetch['by_CUPS'])
                     assert consumption == consumption_expected['by_CUPS'], "Consumption do no match with the expected one. Expected: '{consumption_expected}' vs '{consumption}'".format(consumption_expected=consumption_expected['by_CUPS'], consumption=consumption)
 
                     # Assert required params to reach Consumption
@@ -112,7 +112,7 @@ with description('A new'):
 
                         works = True
                         try:
-                            consumptions = self.okW.consumptions_by_cups(**tmp_config)
+                            consumptions = self.okW.consumptions.consumptions_by_cups(**tmp_config)
                             print (consumptions)
                         except:
                             works = False
@@ -122,7 +122,7 @@ with description('A new'):
                 with spec_VCR.use_cassette('consumptions.yaml'):
 
                     try:
-                        consumption = self.okW.consumptions_by_aggregates(**consumption_to_fetch['by_aggregates'])
+                        consumption = self.okW.consumptions.consumptions_by_aggregates(**consumption_to_fetch['by_aggregates'])
                         assert consumption == consumption_expected['by_aggregates'], "Consumption do no match with the expected one. Expected: '{consumption_expected}' vs '{consumption}'".format(consumption_expected=consumption_expected['by_aggregates'], consumption=consumption)
                     except:
                         pass
@@ -134,7 +134,7 @@ with description('A new'):
 
                         works = True
                         try:
-                            consumptions = self.okW.consumptions_by_aggregates(**tmp_config)
+                            consumptions = self.okW.consumptions.consumptions_by_aggregates(**tmp_config)
                             print (consumptions)
                         except:
                             works = False
