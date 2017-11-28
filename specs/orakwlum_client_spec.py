@@ -84,9 +84,9 @@ with description('A new'):
                     self.config = config
                     self.okW = orakWlum_Client(**self.config)
 
-            with it('must return consumptions as expected'):
+            with it('must return consumptions by CUPS as expected '):
                 with spec_VCR.use_cassette('consumptions.yaml'):
-                    consumption = self.okW.consumptions(**consumption_to_fetch)
+                    consumption = self.okW.consumptions_by_cups(**consumption_to_fetch)
                     assert consumption == consumption_expected, "Consumption do no match with the expected one. Expected: '{consumption_expected}' vs '{consumption}'".format(consumption_expected=consumption_expected, consumption=consumption)
 
                     # Assert required params to reach Consumption
@@ -96,7 +96,7 @@ with description('A new'):
 
                         works = True
                         try:
-                            consumptions = self.okW.consumptions(**tmp_config)
+                            consumptions = self.okW.consumptions_by_cups(**tmp_config)
                             print (consumptions)
                         except:
                             works = False
