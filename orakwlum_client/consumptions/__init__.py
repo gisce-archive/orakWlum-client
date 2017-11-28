@@ -6,7 +6,7 @@ class Consumptions (object):
     def __init__(self, API):
         self.API = API
 
-    def consumptions_by_cups (self, CUPS, date_start, date_end):
+    def by_cups (self, CUPS, date_start, date_end):
         """
         Return consumptions for a CUPS (or a list) between a range of dates
 
