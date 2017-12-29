@@ -82,7 +82,12 @@ class orakWlum_API(object):
 
         So far, ask the API and return a JSON representation of the response
         """
-        result = self.API(method=method, resource=resource, **kwargs)
+        try:
+            result = self.API(method=method, resource=resource, **kwargs)
+        except:
+            self.login()
+            result = self.API(method=method, resource=resource, **kwargs)
+
         return result.json()
 
     def get(self, resource, **kwargs):
