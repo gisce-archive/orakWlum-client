@@ -61,13 +61,13 @@ class orakWlum_API(object):
 
         return AVAILABLE_METHODS[method](resource, headers=headers, **kwargs)
 
-    def login(self, user, password):
+    def login(self):
         """
         Authenticate current client, trying to reach a valid access token.
         """
         login_data = {
-            "email": user,
-            "password": password,
+            "email": self.user,
+            "password": self.password,
         }
         r = requests.post(self.url + "/get_token", json=login_data)
         result = r.json()
