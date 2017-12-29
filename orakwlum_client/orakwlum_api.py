@@ -18,8 +18,8 @@ class orakWlum_API(object):
         self.url = url + "/api/{CURRENT_API}".format(CURRENT_API=CURRENT_API)
         self.token = None
 
-        # Try to login
-        self.login(user=user, password=password)
+        self.user = user
+        self.password = password
 
     def API(self, **kwargs):
         """
