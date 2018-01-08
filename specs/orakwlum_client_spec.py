@@ -66,7 +66,6 @@ with description('A new'):
                 with spec_VCR.use_cassette('init.yaml'):
                     self.okW = orakWlum_Client(**self.config)
                     assert self.okW.API.url == self.expected['url'], "URL must match"
-                    assert self.okW.API.token != None, "Token must be defined"
 
             with context('errors'):
                 with it('must be handled for non passed user'):

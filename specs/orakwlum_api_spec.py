@@ -33,7 +33,7 @@ with description('A new'):
                 with spec_VCR.use_cassette('login.yaml'):
                     self.API = orakWlum_API(**self.config)
                     assert self.API.url == self.expected['url'], "URL must match"
-                    assert self.API.token != None, "Token must be defined"
+                    #assert self.API.token != None, "Token must be defined"
 
             with context('errors'):
                 with it('must be handled for incorrect user'):
@@ -41,14 +41,14 @@ with description('A new'):
                         self.config['user'] = "non-existent-user"
                         self.API = orakWlum_API(**self.config)
                         assert self.API.url == self.expected['url'], "URL must match"
-                        assert self.API.token == None, "Token must not be defined for erroneous login"
+                        #assert self.API.token == None, "Token must not be defined for erroneous login"
 
                 with it('must be handled for incorrect password'):
                     with spec_VCR.use_cassette('error_login_incorrect_passwd.yaml'):
                         self.config['password'] = "incorrect-password"
                         self.API = orakWlum_API(**self.config)
                         assert self.API.url == self.expected['url'], "URL must match"
-                        assert self.API.token == None, "Token must not be defined for erroneous login"
+                        #assert self.API.token == None, "Token must not be defined for erroneous login"
 
 
         with context('usage'):
@@ -60,8 +60,10 @@ with description('A new'):
             with it('must be performed as expected for GET requests'):
                 with spec_VCR.use_cassette('get.yaml'):
                     self.API.get("/")
+                    assert self.API.token == None, "Token must not be defined for erroneous login"
 
             with it('must be performed as expected for GET requests with own headers'):
                 with spec_VCR.use_cassette('get.yaml'):
                     own_headers = {'rolf': 'me'}
                     self.API.get("/", headers=own_headers)
+                    assert self.API.token == None, "Token must not be defined for erroneous login"
