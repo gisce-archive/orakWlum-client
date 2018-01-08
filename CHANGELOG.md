@@ -1,9 +1,10 @@
-## 0.3.0 - WIP
+## 0.3 - WIP
 * Added Consumption.by_aggregates()
 * Consumption.by_cups() now passes CUPS as HTTP params
 * Isolated packages for each functionality
   * client.consumptions.by_cups() replaces client.consumptions_by_cups()
   * client.consumptions.by_aggregates() replaces client.consumptions_by_aggregates()
+* Consumptions arguments are now passed as body data instead of GET params
 
 ## 0.2.0 - First productive client!
 * Package renamed to "orakwlum_client"
