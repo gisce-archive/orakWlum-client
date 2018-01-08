@@ -18,7 +18,7 @@ class Consumptions (object):
             "date_end": date_end,
             "cups": CUPS,
         }
-        return self.API.get(resource="/consumptions", params=params)
+        return self.API.get(resource="/consumptions", data=params)
 
     def by_aggregates (self, date_start, date_end, aggregates=None):
         """
