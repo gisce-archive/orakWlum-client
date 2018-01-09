@@ -5,6 +5,7 @@
   * client.consumptions.by_cups() replaces client.consumptions_by_cups()
   * client.consumptions.by_aggregates() replaces client.consumptions_by_aggregates()
 * Consumptions arguments are now passed as body data instead of GET params
+* Fixed BUG at API init (asserting URL) #16
 
 ## 0.2.0 - First productive client!
 * Package renamed to "orakwlum_client"
