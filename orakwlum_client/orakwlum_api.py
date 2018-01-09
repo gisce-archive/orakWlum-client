@@ -11,7 +11,7 @@ CURRENT_API = "v1"
 
 class orakWlum_API(object):
     def __init__(self, url, user, password):
-        assert type(url) == str and len(user) > 0 and url.startswith("http"), "Provided URL '{}' is not correct, it must be a string with an URI".format(url)
+        assert type(url) == str and len(url) > 0 and url.startswith("http"), "Provided URL '{}' is not correct, it must be a string with an URI".format(url)
         assert type(user) == str and len(user) > 0, "Provided user '{}' is not correct, it must be a string".format(user)
         assert type(password) == str and len(password) > 0, "Provided password '{}' is not correct, it must be a string.".format(password)
 
