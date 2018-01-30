@@ -72,10 +72,14 @@ class orakWlum_API(object):
 
         return AVAILABLE_METHODS[method](resource, headers=headers, **kwargs)
 
+
     def login(self):
         """
         Authenticate current client, trying to reach a valid access token.
         """
+        if not self.activated:
+            return False
+
         login_data = {
             "email": self.user,
             "password": self.password,
@@ -87,12 +91,16 @@ class orakWlum_API(object):
         if ("error" not in result or not result['error']) and "token" in result:
             self.token = result['token']
 
+
     def method(self, method, resource, **kwargs):
         """
         Main method handler
 
         So far, ask the API and return a JSON representation of the response
         """
+        if not self.activated:
+            return False
+
         try:
             result = self.API(method=method, resource=resource, **kwargs)
         except:
@@ -100,6 +108,7 @@ class orakWlum_API(object):
             result = self.API(method=method, resource=resource, **kwargs)
 
         return result.json()
+
 
     def get(self, resource, **kwargs):
         """
