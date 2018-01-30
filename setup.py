@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from setuptools import setup, find_packages
+import re
 
 INSTALL_REQUIRES = ['requests']
 
