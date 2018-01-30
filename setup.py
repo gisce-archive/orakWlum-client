@@ -1,13 +1,19 @@
 # -*- coding: utf-8 -*-
 from setuptools import setup, find_packages
-import orakwlum_client
+import re
 
 INSTALL_REQUIRES = ['requests']
+
+okW = {}
+# Get version and metadata of the package
+with open("orakwlum_client/__init__.py") as ver_file:
+    meta_file=ver_file.read()
+    okW = dict(re.findall("__([a-z]+)__ = '([^']+)'", meta_file))
 
 setup(
     name='orakwlum_client',
     description='Python interface desired to interact with the okW system',
-    version=orakwlum_client.__version__,
+    version=okW['version'],
     url='https://www.gisce.net',
     author='GISCE Enginyeria, SL',
     author_email='devel@gisce.net',
@@ -15,7 +21,7 @@ setup(
     install_requires=INSTALL_REQUIRES,
     license='General Public Licence 3',
     provides=['orakwlum_client'],
-    classifiers = [
+    classifiers=[
         "Programming Language :: Python",
         "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3",
