@@ -3,10 +3,14 @@ from setuptools import setup, find_packages
 
 INSTALL_REQUIRES = ['requests']
 
+# Get version
+with open("orakwlum_client/__init__.py") as ver_file:
+    exec(ver_file.read(), orakw)
+
 setup(
     name='orakwlum_client',
     description='Python interface desired to interact with the okW system',
-    version=orakwlum_client.__version__,
+    version=orakw['__version__'],
     url='https://www.gisce.net',
     author='GISCE Enginyeria, SL',
     author_email='devel@gisce.net',
