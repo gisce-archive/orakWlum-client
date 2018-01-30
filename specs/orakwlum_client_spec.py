@@ -51,7 +51,7 @@ consumption_expected = {
 fixtures_path = 'specs/fixtures/okW_Client/'
 
 spec_VCR = vcr.VCR(
-    record_mode='new_episodes',
+    record_mode='none',
     cassette_library_dir=fixtures_path
 )
 
