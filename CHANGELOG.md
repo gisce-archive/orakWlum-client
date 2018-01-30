@@ -6,7 +6,8 @@
   * client.consumptions.by_aggregates() replaces client.consumptions_by_aggregates()
 * Consumptions arguments are now passed as body data instead of GET params
 * Fixed BUG at API init (asserting URL) #16
-* Fixed BUG at install process race condition
+* Fixed BUG at install process race condition #17
+* Inits can be performed with None user as a deactivated okW client instances #19
 
 ## 0.2.0 - First productive client!
 * Package renamed to "orakwlum_client"

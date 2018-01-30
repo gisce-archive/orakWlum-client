@@ -11,15 +11,26 @@ CURRENT_API = "v1"
 
 class orakWlum_API(object):
     def __init__(self, url, user, password):
-        assert type(url) == str and len(url) > 0 and url.startswith("http"), "Provided URL '{}' is not correct, it must be a string with an URI".format(url)
-        assert type(user) == str and len(user) > 0, "Provided user '{}' is not correct, it must be a string".format(user)
-        assert type(password) == str and len(password) > 0, "Provided password '{}' is not correct, it must be a string.".format(password)
+        if user is not None:
+            assert type(url) == str and len(url) > 0 and url.startswith("http"), "Provided URL '{}' is not correct, it must be a string with an URI".format(url)
+            assert type(user) == str and len(user) > 0, "Provided user '{}' is not correct, it must be a string".format(user)
+            assert type(password) == str and len(password) > 0, "Provided password '{}' is not correct, it must be a string.".format(password)
 
-        self.url = url + "/api/{CURRENT_API}".format(CURRENT_API=CURRENT_API)
-        self.token = None
+            self.url = url + "/api/{CURRENT_API}".format(CURRENT_API=CURRENT_API)
+            self.token = None
 
-        self.user = user
-        self.password = password
+            self.user = user
+            self.password = password
+
+            self.activated = True
+
+        else:
+            self.activated = False
+            self.user = None
+            self.password = None
+            self.token = None
+            self.url = None
+
 
     def API(self, **kwargs):
         """
@@ -61,10 +72,14 @@ class orakWlum_API(object):
 
         return AVAILABLE_METHODS[method](resource, headers=headers, **kwargs)
 
+
     def login(self):
         """
         Authenticate current client, trying to reach a valid access token.
         """
+        if not self.activated:
+            return False
+
         login_data = {
             "email": self.user,
             "password": self.password,
@@ -76,12 +91,16 @@ class orakWlum_API(object):
         if ("error" not in result or not result['error']) and "token" in result:
             self.token = result['token']
 
+
     def method(self, method, resource, **kwargs):
         """
         Main method handler
 
         So far, ask the API and return a JSON representation of the response
         """
+        if not self.activated:
+            return False
+
         try:
             result = self.API(method=method, resource=resource, **kwargs)
         except:
@@ -89,6 +108,7 @@ class orakWlum_API(object):
             result = self.API(method=method, resource=resource, **kwargs)
 
         return result.json()
+
 
     def get(self, resource, **kwargs):
         """
