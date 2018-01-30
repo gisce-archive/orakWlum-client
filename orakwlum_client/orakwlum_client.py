@@ -1,9 +1,21 @@
 # -*- coding: utf-8 -*-
 from .orakwlum_api import orakWlum_API
-import json
+from .consumptions import Consumptions
 
 class orakWlum_Client(object):
     def __init__(self, **config):
+        """
+        Initializes an orakWlum client
+
+        Mandatory params:
+        - host
+        - port
+        - user
+        - password
+
+        Optional:
+        - protocol: "http" or "https"
+        """
         assert "host" in config
         assert "port" in config
         assert "user" in config
@@ -22,12 +34,5 @@ class orakWlum_Client(object):
         }
         self.API = orakWlum_API(**config)
 
-    def consumptions(self, CUPS, date_start, date_end):
-        """
-        Return consumptions for a CUPS between a range of dates
-        """
-        params = {
-            "date_start": date_start,
-            "date_end": date_end,
-        }
-        return self.API.get(resource="/consumptions/" + CUPS, params=params)
+        # Prepare consumptions method
+        self.consumptions = Consumptions(self.API)

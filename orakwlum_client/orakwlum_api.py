@@ -11,15 +11,15 @@ CURRENT_API = "v1"
 
 class orakWlum_API(object):
     def __init__(self, url, user, password):
-        assert type(url) == str and len(user) > 0 and url.startswith("http"), "Provided URL '{}' is not correct, it must be a string with an URI".format(url)
+        assert type(url) == str and len(url) > 0 and url.startswith("http"), "Provided URL '{}' is not correct, it must be a string with an URI".format(url)
         assert type(user) == str and len(user) > 0, "Provided user '{}' is not correct, it must be a string".format(user)
         assert type(password) == str and len(password) > 0, "Provided password '{}' is not correct, it must be a string.".format(password)
 
         self.url = url + "/api/{CURRENT_API}".format(CURRENT_API=CURRENT_API)
         self.token = None
 
-        # Try to login
-        self.login(user=user, password=password)
+        self.user = user
+        self.password = password
 
     def API(self, **kwargs):
         """
@@ -61,13 +61,13 @@ class orakWlum_API(object):
 
         return AVAILABLE_METHODS[method](resource, headers=headers, **kwargs)
 
-    def login(self, user, password):
+    def login(self):
         """
         Authenticate current client, trying to reach a valid access token.
         """
         login_data = {
-            "email": user,
-            "password": password,
+            "email": self.user,
+            "password": self.password,
         }
         r = requests.post(self.url + "/get_token", json=login_data)
         result = r.json()
@@ -82,7 +82,12 @@ class orakWlum_API(object):
 
         So far, ask the API and return a JSON representation of the response
         """
-        result = self.API(method=method, resource=resource, **kwargs)
+        try:
+            result = self.API(method=method, resource=resource, **kwargs)
+        except:
+            self.login()
+            result = self.API(method=method, resource=resource, **kwargs)
+
         return result.json()
 
     def get(self, resource, **kwargs):
