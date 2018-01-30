@@ -1,5 +1,23 @@
 interactions:
 - request:
+    body: '{"email": "test@gisce.net", "password": "test@gisce.net"}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['57']
+      Content-Type: [application/json]
+      User-Agent: [python-requests/2.18.4]
+    method: POST
+    uri: http://localhost:5000/api/v1/get_token
+  response:
+    body: {string: "{\n  \"token\": \"eyJhbGciOiJIUzI1NiIsImlhdCI6MTUxMTI1NTI2MSwiZXhwIjoxNTEyNDY0ODYxfQ.eyJlbWFpbCI6InRlc3RAZ2lzY2UubmV0IiwiZ3JvdXBzIjpbIlVzZXIiXSwicm9sZXMiOiJVc2VyIiwiaW1hZ2UiOiJpbWFnZXMvdXNlci5qcGcifQ.RCczxGkCbcTCcsmTCHoCAIxjVND6EGTLeOPkzpm1oIU\"\n}\n"}
+    headers:
+      Content-Length: ['243']
+      Content-Type: [application/json]
+    status: {code: 200, message: OK}
+
+- request:
     body: null
     headers:
       Accept: ['*/*']
