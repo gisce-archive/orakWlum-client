@@ -6,13 +6,13 @@ INSTALL_REQUIRES = ['requests']
 
 # Get version and metadata of the package
 with open("orakwlum_client/__init__.py") as ver_file:
-    okW=ver_file.read()
-    metadata = dict(re.findall("__([a-z]+)__ = '([^']+)'", okW))
+    meta_file=ver_file.read()
+    okW = dict(re.findall("__([a-z]+)__ = '([^']+)'", meta_file))
 
 setup(
     name='orakwlum_client',
     description='Python interface desired to interact with the okW system',
-    version=metadata['__version__'],
+    version=okW['__version__'],
     url='https://www.gisce.net',
     author='GISCE Enginyeria, SL',
     author_email='devel@gisce.net',
