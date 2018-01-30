@@ -3,15 +3,15 @@ from setuptools import setup, find_packages
 
 INSTALL_REQUIRES = ['requests']
 
-# Get version
-okW={}
+# Get version and metadata of the package
 with open("orakwlum_client/__init__.py") as ver_file:
-    exec(ver_file.read(), okW)
+    okW=ver_file.read()
+    metadata = dict(re.findall("__([a-z]+)__ = '([^']+)'", okW))
 
 setup(
     name='orakwlum_client',
     description='Python interface desired to interact with the okW system',
-    version=okW['__version__'],
+    version=metadata['__version__'],
     url='https://www.gisce.net',
     author='GISCE Enginyeria, SL',
     author_email='devel@gisce.net',
